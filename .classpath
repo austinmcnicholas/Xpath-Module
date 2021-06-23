@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="javasource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Program Files/Mendix/8.7.0.1476/runtime/bundles/com.mendix.json.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/8.7.0.1476/runtime/bundles/com.mendix.logging-api.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/8.7.0.1476/runtime/bundles/com.mendix.m2ee-api.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/8.7.0.1476/runtime/bundles/com.mendix.public-api.jar"/><classpathentry kind="lib" path="C:/Program Files/Mendix/8.7.0.1476/runtime/bundles/javax.servlet-api.servlet.jar"/>
+	<classpathentry kind="lib" path="userlib/animal-sniffer-annotations-1.17.jar"/><classpathentry kind="lib" path="userlib/checker-qual-2.5.2.jar"/><classpathentry kind="lib" path="userlib/commons-io-2.6.jar"/><classpathentry kind="lib" path="userlib/commons-lang3-3.7.jar"/><classpathentry kind="lib" path="userlib/commons-logging-1.2.jar"/><classpathentry kind="lib" path="userlib/error_prone_annotations-2.2.0.jar"/><classpathentry kind="lib" path="userlib/fontbox-2.0.13.jar"/><classpathentry kind="lib" path="userlib/guava-27.0-jre.jar"/><classpathentry kind="lib" path="userlib/j2objc-annotations-1.1.jar"/><classpathentry kind="lib" path="userlib/jsr305-3.0.2.jar"/><classpathentry kind="lib" path="userlib/owasp-java-html-sanitizer-20181114.1.jar"/><classpathentry kind="lib" path="userlib/pdfbox-2.0.13.jar"/>
+	<classpathentry kind="output" path="deployment/run/bin"/>
+</classpath>
