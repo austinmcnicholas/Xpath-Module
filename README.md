@@ -10,4 +10,4 @@ Exactly like the retrieve from database activity but allows you to provide the x
 The module has an example folder that contains examples on how to use each action. 
 
 
-![image](/assets/xpathImage1.png)
+![Screenshot 1](/assets/xpathImage1.png)
