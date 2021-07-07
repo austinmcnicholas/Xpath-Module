@@ -21,7 +21,8 @@ public class Example
 	public enum MemberNames
 	{
 		Value("Value"),
-		Sort("Sort");
+		Sort("Sort"),
+		Example_ParentExample("Xpath.Example_ParentExample");
 
 		private java.lang.String metaName;
 
@@ -186,6 +187,49 @@ public class Example
 	public final void setSort(com.mendix.systemwideinterfaces.core.IContext context, java.math.BigDecimal sort)
 	{
 		getMendixObject().setValue(context, MemberNames.Sort.toString(), sort);
+	}
+
+	/**
+	 * @return value of Example_ParentExample
+	 */
+	public final xpath.proxies.ParentExample getExample_ParentExample() throws com.mendix.core.CoreException
+	{
+		return getExample_ParentExample(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Example_ParentExample
+	 */
+	public final xpath.proxies.ParentExample getExample_ParentExample(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		xpath.proxies.ParentExample result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Example_ParentExample.toString());
+		if (identifier != null)
+			result = xpath.proxies.ParentExample.load(context, identifier);
+		return result;
+	}
+
+	/**
+	 * Set value of Example_ParentExample
+	 * @param example_parentexample
+	 */
+	public final void setExample_ParentExample(xpath.proxies.ParentExample example_parentexample)
+	{
+		setExample_ParentExample(getContext(), example_parentexample);
+	}
+
+	/**
+	 * Set value of Example_ParentExample
+	 * @param context
+	 * @param example_parentexample
+	 */
+	public final void setExample_ParentExample(com.mendix.systemwideinterfaces.core.IContext context, xpath.proxies.ParentExample example_parentexample)
+	{
+		if (example_parentexample == null)
+			getMendixObject().setValue(context, MemberNames.Example_ParentExample.toString(), null);
+		else
+			getMendixObject().setValue(context, MemberNames.Example_ParentExample.toString(), example_parentexample.getMendixObject().getId());
 	}
 
 	/**

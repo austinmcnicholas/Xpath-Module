@@ -1,0 +1,9 @@
+Buildfile: C:\Users\work\Documents\GitHub\Xpath-Module\deployment\build_core.xml
+
+clean:
+   [delete] Deleting directory C:\Users\work\Documents\GitHub\Xpath-Module\deployment\model
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+
+
