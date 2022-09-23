@@ -9,29 +9,21 @@
 
 package xpath.actions;
 
-import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import xpath.helper.xpathHelper;
-import xpath.proxies.AggregateType;
-import xpath.proxies.SortMap;
 import java.math.BigDecimal;
-import java.math.MathContext;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-import static com.mendix.core.Core.*;
 
 public class RetrieveByXpathAggregate_Decimal extends CustomJavaAction<java.math.BigDecimal>
 {
-	private IMendixObject ReturnObjectType;
+	private java.lang.String ReturnObjectType;
 	private IMendixObject __Xpath;
 	private xpath.proxies.Xpath Xpath;
 	private xpath.proxies.AggregateType AggregateType;
 	private java.lang.String attributeName;
 
-	public RetrieveByXpathAggregate_Decimal(IContext context, IMendixObject ReturnObjectType, IMendixObject Xpath, java.lang.String AggregateType, java.lang.String attributeName)
+	public RetrieveByXpathAggregate_Decimal(IContext context, java.lang.String ReturnObjectType, IMendixObject Xpath, java.lang.String AggregateType, java.lang.String attributeName)
 	{
 		super(context);
 		this.ReturnObjectType = ReturnObjectType;
@@ -43,7 +35,7 @@ public class RetrieveByXpathAggregate_Decimal extends CustomJavaAction<java.math
 	@java.lang.Override
 	public java.math.BigDecimal executeAction() throws Exception
 	{
-		this.Xpath = __Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
+		this.Xpath = this.__Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
 
 		// BEGIN USER CODE
 
@@ -55,6 +47,7 @@ public class RetrieveByXpathAggregate_Decimal extends CustomJavaAction<java.math
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()
