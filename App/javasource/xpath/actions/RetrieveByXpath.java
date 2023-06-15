@@ -17,33 +17,25 @@ import java.util.List;
 
 public class RetrieveByXpath extends CustomJavaAction<java.util.List<IMendixObject>>
 {
-	private IMendixObject ReturnObjectType;
+	private java.lang.String ReturnObjectType;
 	private IMendixObject __Xpath;
 	private xpath.proxies.Xpath Xpath;
 	private java.lang.Long Amount;
 	private java.lang.Long Offset;
-	private java.util.List<IMendixObject> __Sort;
-	private java.util.List<xpath.proxies.SortMap> Sort;
 
-	public RetrieveByXpath(IContext context, IMendixObject ReturnObjectType, IMendixObject Xpath, java.lang.Long Amount, java.lang.Long Offset, java.util.List<IMendixObject> Sort)
+	public RetrieveByXpath(IContext context, java.lang.String ReturnObjectType, IMendixObject Xpath, java.lang.Long Amount, java.lang.Long Offset)
 	{
 		super(context);
 		this.ReturnObjectType = ReturnObjectType;
 		this.__Xpath = Xpath;
 		this.Amount = Amount;
 		this.Offset = Offset;
-		this.__Sort = Sort;
 	}
 
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.Xpath = __Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
-
-		this.Sort = new java.util.ArrayList<xpath.proxies.SortMap>();
-		if (__Sort != null)
-			for (IMendixObject __SortElement : __Sort)
-				this.Sort.add(xpath.proxies.SortMap.initialize(getContext(), __SortElement));
+		this.Xpath = this.__Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
 
 		// BEGIN USER CODE
 
@@ -58,7 +50,7 @@ public class RetrieveByXpath extends CustomJavaAction<java.util.List<IMendixObje
 			offset = 0;
 		}
 
-		List<IMendixObject> result = xpathHelper.retrieveByXpath(getContext(), amount, offset, Sort, ReturnObjectType, Xpath);
+		List<IMendixObject> result = xpathHelper.retrieveByXpath(getContext(), amount, offset, ReturnObjectType, Xpath);
 		return result == null ? null : result;
 
 		// END USER CODE
@@ -66,6 +58,7 @@ public class RetrieveByXpath extends CustomJavaAction<java.util.List<IMendixObje
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

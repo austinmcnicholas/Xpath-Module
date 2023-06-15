@@ -1,5 +1,6 @@
 package xpath.helper;
 
+import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import xpath.proxies.AggregateType;
@@ -16,7 +17,7 @@ import static com.mendix.core.Core.retrieveXPathQueryAggregateDouble;
 
 public class xpathHelper {
 
-    public static List<IMendixObject> retrieveByXpath (IContext context, int Amount, int Offset, java.util.List<xpath.proxies.SortMap> Sort, IMendixObject ReturnObjectType, xpath.proxies.Xpath xpathObj) throws Exception  {
+    public static List<IMendixObject> retrieveByXpath (IContext context, int Amount, int Offset, String ReturnObjectType, xpath.proxies.Xpath xpathObj) throws Exception  {
 
 
         if (xpathObj == null){
@@ -28,9 +29,10 @@ public class xpathHelper {
 
 
         Map<String,String> sortMap = new HashMap<String, String>();
-
-        for ( SortMap sort : Sort){
-            Boolean sortAscending = sort.getSortAscending();
+        
+        for ( IMendixObject s : Core.retrieveByPath(context, xpathObj.getMendixObject(), SortMap.MemberNames.SortMap_Xpath.toString(), true)){
+            SortMap sort = SortMap.initialize(context, s);
+        	Boolean sortAscending = sort.getSortAscending();
 
             String sortDirection;
             if (sortAscending){
@@ -61,7 +63,7 @@ public class xpathHelper {
 
     }
 
-    public static BigDecimal retrieveByXpathAggregateDecimal (IContext context, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName, IMendixObject ReturnObjectType) throws Exception  {
+    public static BigDecimal retrieveByXpathAggregateDecimal (IContext context, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName, String ReturnObjectType) throws Exception  {
 
         String xpathQuery = getXpathAggregateQuery(ReturnObjectType, xpathObj, AggregateType,attributeName);
 
@@ -80,7 +82,7 @@ public class xpathHelper {
 
     }
 
-    public static Long retrieveByXpathAggregate (IContext context, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName, IMendixObject ReturnObjectType) throws Exception  {
+    public static Long retrieveByXpathAggregate (IContext context, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName, String ReturnObjectType) throws Exception  {
 
         String xpathQuery = getXpathAggregateQuery(ReturnObjectType, xpathObj, AggregateType,attributeName);
 
@@ -99,9 +101,9 @@ public class xpathHelper {
     }
 
 
-    public static String getXpath (IMendixObject ReturnObjectType, xpath.proxies.Xpath xpathObj) {
+    public static String getXpath (String ReturnObjectType, xpath.proxies.Xpath xpathObj) {
 
-        String xpathStart = "//" +  ReturnObjectType.getMetaObject().getName();
+        String xpathStart = "//" +  ReturnObjectType;
         String xpath;
 
         if (xpathObj.getQuery() == null){
@@ -116,7 +118,7 @@ public class xpathHelper {
         return xpath;
     }
 
-    public static String getXpathAggregateQuery (IMendixObject ReturnObjectType, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName) {
+    public static String getXpathAggregateQuery (String ReturnObjectType, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName) {
 
         String xpathQuery;
         String xpathConstraint = getXpath(ReturnObjectType, xpathObj);
