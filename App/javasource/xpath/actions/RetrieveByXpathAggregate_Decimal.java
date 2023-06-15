@@ -35,7 +35,7 @@ public class RetrieveByXpathAggregate_Decimal extends CustomJavaAction<java.math
 	@java.lang.Override
 	public java.math.BigDecimal executeAction() throws Exception
 	{
-		this.Xpath = this.__Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
+		this.Xpath = __Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
 
 		// BEGIN USER CODE
 
@@ -47,7 +47,6 @@ public class RetrieveByXpathAggregate_Decimal extends CustomJavaAction<java.math
 
 	/**
 	 * Returns a string representation of this action
-	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

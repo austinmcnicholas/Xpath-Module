@@ -35,7 +35,7 @@ public class RetrieveByXpath extends CustomJavaAction<java.util.List<IMendixObje
 	@java.lang.Override
 	public java.util.List<IMendixObject> executeAction() throws Exception
 	{
-		this.Xpath = this.__Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
+		this.Xpath = __Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
 
 		// BEGIN USER CODE
 
@@ -58,7 +58,6 @@ public class RetrieveByXpath extends CustomJavaAction<java.util.List<IMendixObje
 
 	/**
 	 * Returns a string representation of this action
-	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

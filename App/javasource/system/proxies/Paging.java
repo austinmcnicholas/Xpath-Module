@@ -71,9 +71,6 @@ public class Paging
 	 */
 	public static system.proxies.Paging initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("Xpath.ExampleReport_DataGrid", mendixObject.getType()))
-			return xpath.proxies.ExampleReport_DataGrid.initialize(context, mendixObject);
-
 		return new system.proxies.Paging(context, mendixObject);
 	}
 

@@ -34,7 +34,7 @@ public class RetrieveByXpathAggregate_Int extends CustomJavaAction<java.lang.Lon
 	@java.lang.Override
 	public java.lang.Long executeAction() throws Exception
 	{
-		this.Xpath = this.__Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
+		this.Xpath = __Xpath == null ? null : xpath.proxies.Xpath.initialize(getContext(), __Xpath);
 
 		// BEGIN USER CODE
 		Long result = xpathHelper.retrieveByXpathAggregate(getContext(), Xpath, AggregateType, attributeName, ReturnObjectType);
@@ -44,7 +44,6 @@ public class RetrieveByXpathAggregate_Int extends CustomJavaAction<java.lang.Lon
 
 	/**
 	 * Returns a string representation of this action
-	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()
