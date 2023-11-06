@@ -1,7 +1,0 @@
-Listening for transport dt_socket at address: 5005
-[rtlauncher:container$] INFO Container start took 2054. Ready to accept admin requests.
-Nov 06, 2023 12:16:56 PM org.hsqldb.persist.Logger logInfoEvent
-INFO: Database closed
-
-
-
