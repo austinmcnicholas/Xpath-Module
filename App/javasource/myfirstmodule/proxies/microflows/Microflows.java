@@ -14,6 +14,11 @@ import com.mendix.systemwideinterfaces.core.IContext;
 public class Microflows
 {
 	// These are the microflows for the MyFirstModule module
+	public static void generateExampleObjects(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("MyFirstModule.GenerateExampleObjects").withParams(params).execute(context);
+	}
 	public static void unitTest(IContext context)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();

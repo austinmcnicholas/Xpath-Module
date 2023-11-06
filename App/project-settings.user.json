@@ -8,7 +8,52 @@
       "type": "Mendix.Modeler.Suppressions.SuppressionRules, Mendix.Modeler.Core, Version=9.1.1.19613, Culture=neutral, PublicKeyToken=null"
     },
     {
-      "suppressions": [],
+      "suppressions": [
+        {
+          "typeOfElement": "Module",
+          "uuid": "16747dc6-b6b7-42ae-aabf-255dca2aeeaf"
+        },
+        {
+          "typeOfElement": "DomainModel",
+          "uuid": "84776610-13b2-48cb-a265-d5e984d63129"
+        },
+        {
+          "typeOfElement": "MicroflowRoot",
+          "uuid": "2f4a1242-5049-5973-9263-b02da427d806"
+        },
+        {
+          "typeOfElement": "Microflow",
+          "uuid": "45440c65-d830-470f-9748-544bcf643dfa"
+        },
+        {
+          "typeOfElement": "Microflow",
+          "uuid": "d0895316-6ae2-444f-a2a7-170d4840f741"
+        },
+        {
+          "typeOfElement": "PageRoot",
+          "uuid": "9319ef0a-75f7-5e3a-ba89-ffc1bf460db9"
+        },
+        {
+          "typeOfElement": "Page",
+          "uuid": "7b22940f-b2dd-43e1-9a0b-25011a7e1b33"
+        },
+        {
+          "typeOfElement": "Module",
+          "uuid": "5be190a7-dbbb-40d4-b2ed-7385e0893976"
+        },
+        {
+          "typeOfElement": "DomainModel",
+          "uuid": "763b05f9-c438-42ed-8f1e-d573d74812ee"
+        },
+        {
+          "typeOfElement": "MicroflowRoot",
+          "uuid": "8ac31961-7696-5cc3-8b1a-16f4d52512bb"
+        },
+        {
+          "typeOfElement": "PageRoot",
+          "uuid": "74dc1948-74a7-5833-95d4-d0aa59833e4b"
+        }
+      ],
       "disabledBestPractices": [],
       "readRecommendations": [],
       "suppressedRecommendations": [],

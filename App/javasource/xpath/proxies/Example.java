@@ -21,7 +21,8 @@ public class Example
 	public enum MemberNames
 	{
 		Value("Value"),
-		Sort("Sort");
+		Sort("Sort"),
+		SortTwo("SortTwo");
 
 		private java.lang.String metaName;
 
@@ -186,6 +187,42 @@ public class Example
 	public final void setSort(com.mendix.systemwideinterfaces.core.IContext context, java.math.BigDecimal sort)
 	{
 		getMendixObject().setValue(context, MemberNames.Sort.toString(), sort);
+	}
+
+	/**
+	 * @return value of SortTwo
+	 */
+	public final java.lang.Integer getSortTwo()
+	{
+		return getSortTwo(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of SortTwo
+	 */
+	public final java.lang.Integer getSortTwo(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.SortTwo.toString());
+	}
+
+	/**
+	 * Set value of SortTwo
+	 * @param sorttwo
+	 */
+	public final void setSortTwo(java.lang.Integer sorttwo)
+	{
+		setSortTwo(getContext(), sorttwo);
+	}
+
+	/**
+	 * Set value of SortTwo
+	 * @param context
+	 * @param sorttwo
+	 */
+	public final void setSortTwo(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer sorttwo)
+	{
+		getMendixObject().setValue(context, MemberNames.SortTwo.toString(), sorttwo);
 	}
 
 	/**
