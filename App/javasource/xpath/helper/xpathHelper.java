@@ -1,15 +1,19 @@
 package xpath.helper;
 
 import com.mendix.core.Core;
+import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import xpath.proxies.AggregateType;
 import xpath.proxies.SortMap;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Iterator;
 
 import static com.mendix.core.Core.retrieveXPathQuery;
 import static com.mendix.core.Core.retrieveXPathQueryAggregate;
@@ -18,7 +22,7 @@ import static com.mendix.core.Core.retrieveXPathQueryAggregateDouble;
 public class xpathHelper {
 
     public static List<IMendixObject> retrieveByXpath (IContext context, int Amount, int Offset, String ReturnObjectType, xpath.proxies.Xpath xpathObj) throws Exception  {
-
+        ILogNode logger = Core.getLogger("test");
 
         if (xpathObj == null){
             throw new Exception("Xpath Object not provided");
@@ -28,10 +32,25 @@ public class xpathHelper {
         }
 
 
-        Map<String,String> sortMap = new HashMap<String, String>();
-        
-        for ( IMendixObject s : Core.retrieveByPath(context, xpathObj.getMendixObject(), SortMap.MemberNames.SortMap_Xpath.toString(), true)){
-            SortMap sort = SortMap.initialize(context, s);
+        Map<String,String> sortMap = new LinkedHashMap<String, String>(); //Use linked hash map to pass sort order to retrieveXPathQuery
+        List<IMendixObject> sortMapObjects = Core.retrieveByPath(context, xpathObj.getMendixObject(), SortMap.MemberNames.SortMap_Xpath.toString(), true);
+        List<SortMap> sortMapList = new ArrayList<SortMap>();
+
+        for ( IMendixObject sortMapObject : sortMapObjects){
+            SortMap sort = SortMap.initialize(context, sortMapObject);
+        	sortMapList.add(0,sort);
+        }
+
+        Iterator<SortMap> sortMapItter = sortMapList.iterator();
+
+        do {
+            if (!sortMapItter.hasNext()){
+                sortMapList.sort(Comparator.comparingInt(SortMap::getOrderInListOfSorts)); //Will only apply sort if all sorts have order in sort list explicitly set to perserve current functionality
+                break;
+            }
+        } while(sortMapItter.next().getOrderInListOfSorts() != null);
+
+        for (SortMap sort : sortMapList){
         	Boolean sortAscending = sort.getSortAscending();
 
             String sortDirection;
@@ -58,9 +77,6 @@ public class xpathHelper {
 
         String xpath = getXpath(ReturnObjectType, xpathObj);
         return retrieveXPathQuery(context, xpath, amount, offset, sortMap);
-
-
-
     }
 
     public static BigDecimal retrieveByXpathAggregateDecimal (IContext context, xpath.proxies.Xpath xpathObj, xpath.proxies.AggregateType AggregateType, java.lang.String attributeName, String ReturnObjectType) throws Exception  {

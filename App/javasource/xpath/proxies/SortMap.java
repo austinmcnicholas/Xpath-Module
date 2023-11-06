@@ -22,6 +22,7 @@ public class SortMap
 	{
 		SortAttribute("SortAttribute"),
 		SortAscending("SortAscending"),
+		OrderInListOfSorts("OrderInListOfSorts"),
 		SortMap_Xpath("Xpath.SortMap_Xpath");
 
 		private java.lang.String metaName;
@@ -179,6 +180,42 @@ public class SortMap
 	public final void setSortAscending(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean sortascending)
 	{
 		getMendixObject().setValue(context, MemberNames.SortAscending.toString(), sortascending);
+	}
+
+	/**
+	 * @return value of OrderInListOfSorts
+	 */
+	public final java.lang.Integer getOrderInListOfSorts()
+	{
+		return getOrderInListOfSorts(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of OrderInListOfSorts
+	 */
+	public final java.lang.Integer getOrderInListOfSorts(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.OrderInListOfSorts.toString());
+	}
+
+	/**
+	 * Set value of OrderInListOfSorts
+	 * @param orderinlistofsorts
+	 */
+	public final void setOrderInListOfSorts(java.lang.Integer orderinlistofsorts)
+	{
+		setOrderInListOfSorts(getContext(), orderinlistofsorts);
+	}
+
+	/**
+	 * Set value of OrderInListOfSorts
+	 * @param context
+	 * @param orderinlistofsorts
+	 */
+	public final void setOrderInListOfSorts(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer orderinlistofsorts)
+	{
+		getMendixObject().setValue(context, MemberNames.OrderInListOfSorts.toString(), orderinlistofsorts);
 	}
 
 	/**

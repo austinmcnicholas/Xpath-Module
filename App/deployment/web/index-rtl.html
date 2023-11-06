@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript">
+            // Redirect to unsupported browser page if opened from browser that doesn't support async/arrow functions
+            try {
+                eval("async () => {}");
+            } catch (error) {
+                var homeUrl = window.location.origin + window.location.pathname;
+                var appUrl = homeUrl.slice(0, homeUrl.lastIndexOf("/") + 1);
+                window.location.replace(appUrl + "unsupported-browser.html");
+            }
+        </script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Mendix</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <link rel="stylesheet" href="styles/web/css/main.css?638348696904568923">
+        
+    </head>
+    <body dir="rtl">
+        <div id="content"></div>
+        <script>
+            dojoConfig = {
+                baseUrl: "mxclientsystem/dojo/",
+                cacheBust: "638348696904568923",
+                ltrRedirect: "index.html"
+            };
+        </script>
+        <script src="mxclientsystem/mxui/mxui.js?638348696904568923"></script>
+    </body>
+</html>
